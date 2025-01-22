@@ -1,0 +1,26 @@
+ADDR = 0x000; BUS = 0x30; MainMemory();	//START:  WB 0X09         ;MBR = 9
+ADDR = 0x001; BUS = 0x09; MainMemory();
+ADDR = 0x002; BUS = 0x0C; MainMemory();	//        WM 0X406        ;MainMemory[0x406] = 9,8,7,6,5,4,3,2,1,0
+ADDR = 0x003; BUS = 0x06; MainMemory();
+ADDR = 0x004; BUS = 0x14; MainMemory();	//LOOP:   RM 0X406        ;MBR = MainMemory[0x406] = 9,8,7,6,5,4,3,2,1,0
+ADDR = 0x005; BUS = 0x06; MainMemory();
+ADDR = 0x006; BUS = 0x48; MainMemory();	//        WACC            ;ACC = MBR = 9,8,7,6,5,4,3,2,1,0
+ADDR = 0x007; BUS = 0x00; MainMemory();
+ADDR = 0x008; BUS = 0x70; MainMemory();	//        SWAP            ;MBR <-> IOBR
+ADDR = 0x009; BUS = 0x00; MainMemory();
+ADDR = 0x00A; BUS = 0x28; MainMemory();	//        WIO 0X00        ;IOMEM[0x00] = IOBR = 9,8,7,6,5,4,3,2,1,0
+ADDR = 0x00B; BUS = 0x00; MainMemory();
+ADDR = 0x00C; BUS = 0x30; MainMemory();	//        WB  0X01        ;MBR = 1
+ADDR = 0x00D; BUS = 0x01; MainMemory();
+ADDR = 0x00E; BUS = 0xE8; MainMemory();	//        SUB             ;ACC = ACC - 1
+ADDR = 0x00F; BUS = 0x00; MainMemory();
+ADDR = 0x010; BUS = 0x58; MainMemory();	//        RACC            ;MBR = ACC
+ADDR = 0x011; BUS = 0x00; MainMemory();
+ADDR = 0x012; BUS = 0x0C; MainMemory();	//        WM 0X406        ;MainMemory[0x406] = ACC
+ADDR = 0x013; BUS = 0x06; MainMemory();
+ADDR = 0x014; BUS = 0x30; MainMemory();	//        WB 0X00         ;WB = 0x00
+ADDR = 0x015; BUS = 0x00; MainMemory();
+ADDR = 0x016; BUS = 0x90; MainMemory();	//        BRGT LOOP       ;JMP to LOOP if currnum>=0
+ADDR = 0x017; BUS = 0x04; MainMemory();
+ADDR = 0x018; BUS = 0xF8; MainMemory();	//        EOP
+ADDR = 0x019; BUS = 0x00; MainMemory();

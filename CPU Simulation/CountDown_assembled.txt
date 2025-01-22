@@ -1,0 +1,12 @@
+ADDR = 0x0; BUS = 0x30; MainMemory();   //WB  0x02
+ADDR = 0x1; BUS = 0x2; MainMemory();
+ADDR = 0x2; BUS = 0xc; MainMemory();   //WM  0x402
+ADDR = 0x3; BUS = 0x2; MainMemory();
+ADDR = 0x100; BUS = 0x30; MainMemory();   //WB  0X02  ;MBR = 0x02
+ADDR = 0x101; BUS = 0x2; MainMemory();
+ADDR = 0x102; BUS = 0xc; MainMemory();   //WM  0X402 
+ADDR = 0x103; BUS = 0x2; MainMemory();
+ADDR = 0x104; BUS = 0x29; MainMemory();   //WIO 100H
+ADDR = 0x105; BUS = 0x0; MainMemory();
+ADDR = 0x106; BUS = 0xf8; MainMemory(); //EOP
+ADDR = 0x107; BUS = 0x0; MainMemory();

@@ -1,0 +1,14 @@
+ORG 0x000
+START:  WB 0X09         ;MBR = 9
+        WM 0X406        ;MainMemory[0x406] = 9,8,7,6,5,4,3,2,1,0
+LOOP:   RM 0X406        ;MBR = MainMemory[0x406] = 9,8,7,6,5,4,3,2,1,0
+        WACC            ;ACC = MBR = 9,8,7,6,5,4,3,2,1,0
+        SWAP            ;MBR <-> IOBR
+        WIO 0X00        ;IOMEM[0x00] = IOBR = 9,8,7,6,5,4,3,2,1,0
+        WB  0X01        ;MBR = 1
+        SUB             ;ACC = ACC - 1
+        RACC            ;MBR = ACC
+        WM 0X406        ;MainMemory[0x406] = ACC
+        WB 0X00         ;WB = 0x00
+        BRGT LOOP       ;JMP to LOOP if currnum>=0
+        EOP
